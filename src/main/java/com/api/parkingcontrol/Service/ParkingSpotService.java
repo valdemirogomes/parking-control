@@ -1,16 +1,24 @@
 package com.api.parkingcontrol.Service;
 
 import org.springframework.stereotype.Service;
+import com.api.parkingcontrol.model.ParkingSpotModel;
 import com.api.parkingcontrol.repository.ParkingSpotRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class ParkingSpotService {
 	
-	final ParkingSpotRepository parkingSpotService;
+	final ParkingSpotRepository parkingSpotRepository;
 
-    ParkingSpotService(ParkingSpotRepository parkingSpotService) {
-        this.parkingSpotService = parkingSpotService;
-    }
+	public ParkingSpotService(ParkingSpotRepository parkingSpotRepository) {
+		
+		this.parkingSpotRepository = parkingSpotRepository;
+	}
+	
+	@Transactional
+	public ParkingSpotModel save(ParkingSpotModel parkingSpotModel) {
+		return parkingSpotRepository.save(parkingSpotModel);
+	}
 
 
 }
