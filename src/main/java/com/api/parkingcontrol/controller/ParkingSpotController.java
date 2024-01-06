@@ -36,7 +36,7 @@ public class ParkingSpotController {
     
     @GetMapping
     public ResponseEntity<List<ParkingSpotModel>> getAllParkSpots(){
-    	return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findAll());
+    	return parkingSpotService.findAll();
     }
     
     @GetMapping(value="/{id}")

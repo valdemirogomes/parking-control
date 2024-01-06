@@ -44,8 +44,8 @@ public class ParkingSpotService {
 		parkingSpotRepository.save(parkingSpotModel);
 		return ResponseEntity.status(HttpStatus.CREATED).body(parkingSpotModel);
 	}
-	public List<ParkingSpotModel>findAll(){
-		return parkingSpotRepository.findAll();
+	public ResponseEntity<List<ParkingSpotModel>>findAll(){
+		return ResponseEntity.status(HttpStatus.OK).body(parkingSpotRepository.findAll());
 	}
 	
 	 public boolean existsByLicensePlateCar(String licensePlateCar) {
